@@ -1,0 +1,38 @@
+package in.sp.main.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.stereotype.Repository;
+
+import in.sp.main.bean.Student;
+import in.sp.main.mapper.StudentRowMapper;
+
+@Repository
+public class SelectDemo {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	public void selectOperation()
+	{
+		String sql_query = "Select * from student_details";
+	    List<Student> student_list = jdbcTemplate.query(sql_query, new StudentRowMapper());
+	    System.out.println("Student Details : "+student_list);	
+	}
+	
+	public void selectOperationwithWhere()
+	{   
+		int student_id = 101; 
+		String sql_query = "Select * from student_details where student_id = ?";
+	    List<Student> student_list = jdbcTemplate.query(sql_query, new StudentRowMapper(),student_id);
+	    System.out.println("Student Details : "+student_list);
+	    
+		
+	}
+	
+	
+	
+	
+}

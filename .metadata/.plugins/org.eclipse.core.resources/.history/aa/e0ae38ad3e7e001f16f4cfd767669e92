@@ -1,0 +1,39 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl("jdbc.mysql://localhost:3306/practice");
+            config.setUsername("root");
+            config.setPassword("Ravina1997");
+            
+            HikariDataSource dataSource = new HikariDataSource(config);
+            try(Connection con = dataSource.getConnection();
+            	PreparedStatement ps = con.prepareStatement("insert into student_details values(?,?,?)");	
+            		
+               )
+            {
+            	
+            	ps.setInt(1, 1002);
+            	ps.setString(2, "Nagpur");
+            	ps.setString(3, "RinaYadav");
+            	
+            	int row = ps.executeUpdate();
+            	if(row > 0)
+            		System.out.println("Row Inserted Successfully !! ");
+            	else
+            		System.out.println("Please try again !! ");
+            	
+            }catch (Exception e) {
+				e.printStackTrace();
+			}
+
+	}
+
+}

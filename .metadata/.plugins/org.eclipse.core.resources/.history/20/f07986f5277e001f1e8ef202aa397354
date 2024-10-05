@@ -1,0 +1,19 @@
+package com.example.demo.Ascpect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class LoggingAspect {
+
+	
+	@Before("execution(* com.example.demo.Service.TranscationService.*())")
+	public void logging()
+	{
+		System.out.println("---------- Logging code ------------ ");
+	}
+	
+}

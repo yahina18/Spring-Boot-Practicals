@@ -1,0 +1,29 @@
+package in.sp.main.dao;
+
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DbConnection {
+
+	@Autowired
+	private DataSource dataSource; 
+	
+	public Connection getConnection()
+	{
+		try {
+			Connection con = dataSource.getConnection();
+			if(con != null)
+				return con;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+}

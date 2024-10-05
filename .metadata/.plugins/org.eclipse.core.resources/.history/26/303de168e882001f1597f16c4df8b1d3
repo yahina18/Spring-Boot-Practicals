@@ -1,0 +1,8 @@
+package in.sp.main.service;
+
+public interface DbService {
+	
+	public boolean insertionOperation(int std_id, String std_name, String std_city);
+	
+
+}

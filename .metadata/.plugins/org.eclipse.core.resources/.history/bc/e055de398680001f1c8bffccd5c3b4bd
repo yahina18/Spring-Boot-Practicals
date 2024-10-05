@@ -1,0 +1,6 @@
+package in.sp.main.dao;
+
+@Resp
+public class BatchUpdationUsingNamedParameter {
+
+}

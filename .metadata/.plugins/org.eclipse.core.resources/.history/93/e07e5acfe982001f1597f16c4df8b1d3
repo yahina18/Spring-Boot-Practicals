@@ -1,0 +1,45 @@
+package in.sp.main.dao;
+
+import java.sql.Connection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CurdOperationImp implements CurdOperation {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	private boolean status = false;
+	
+	@Override
+	public boolean insertionOperation(int std_id, String std_name, String std_city) {
+		    
+	        String sql_query = "insert into student_details values(?,?,?)";
+	        
+	        int count = jdbcTemplate.update(sql_query,std_id,std_name,std_city);
+	        
+	        if(count > 0)
+	        	status = true;
+	        
+		   return status;
+		
+	}
+
+	@Override
+	public boolean updateOperation(int std_id, String std_city) {
+		
+		String sql_query = "update student_details set student_city = ? where student_id = ?";
+		int count = jdbcTemplate.update(sql_query,std_city,std_id);
+		
+		if(count > 0)
+			status = true;
+		
+		return status;
+	}
+	
+	
+
+}

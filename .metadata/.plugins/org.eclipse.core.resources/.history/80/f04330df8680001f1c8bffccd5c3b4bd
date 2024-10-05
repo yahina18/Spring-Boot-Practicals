@@ -1,0 +1,39 @@
+package in.sp.main.dao;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BatchUpdationUsingNamedParameter {
+
+	@Autowired
+	private NamedParameterJdbcTemplate npJdbcTemplate;
+	
+	public void insertOperation()
+	{
+		Map<String,Object> map1 = new HashMap<>();
+		map1.put("key_student_id", "106");
+		map1.put("key_student_city", "Mumbai");
+		map1.put("key_student_name", "hhhhhh");
+		
+		Map<String,Object> map2 = new HashMap<>();
+		map1.put("key_student_id", "107");
+		map1.put("key_student_city", "hyderabad");
+		map1.put("key_student_name", "h788h");
+		
+		Map[]map = {map1,map2};
+		
+		String sql_query = "Insert into student_details values(:key_student_id,:key_student_city,:key_student_name)";
+        int[] count = npJdbcTemplate.batchUpdate(sql_query, map);
+        
+        for(int i : count)
+        	System.out.println("Success : "+i);
+		
+		
+	}
+	
+}

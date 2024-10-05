@@ -1,0 +1,9 @@
+package in.sp.main.bean;
+
+public class Student {
+	
+	private int std_id;
+	private String std_name;
+	private String std_city;
+
+}

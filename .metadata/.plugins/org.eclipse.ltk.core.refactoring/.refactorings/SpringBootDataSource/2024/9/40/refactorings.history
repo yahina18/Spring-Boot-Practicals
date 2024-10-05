@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;in.sp.maibn&apos; to &apos;in.sp.main&apos;&#x0D;&#x0A;- Original project: &apos;SpringBootDataSource&apos;&#x0D;&#x0A;- Original element: &apos;SpringBootDataSource/src/main/java/in.sp.maibn&apos;&#x0D;&#x0A;- Renamed element: &apos;SpringBootDataSource/src/main/java/in.sp.main&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;in.sp.maibn&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.sp.maibn" name="in.sp.main" qualified="false" references="true" stamp="1727605414952" textual="false" version="1.0"/>
+</session>
